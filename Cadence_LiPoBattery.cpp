@@ -94,8 +94,8 @@ long VccSum  = 0;
   Battery_VccRawAnalog   = VccSum / ANALOG_READ_SAMPLES;
     
   //Voltage
-  Battery_VbatVolts = ((float)Battery_VbatRawAnalog / (float)1023) * (float)REF_BATTERY_OUTPUT;
-  Battery_VccVolts = ((float)Battery_VccRawAnalog / (float)1023) * (float)REF_BATTERY_OUTPUT;
+  Battery_VbatVolts = ((double)Battery_VbatRawAnalog / (double)1023) * (double)REF_BATTERY_OUTPUT;
+  Battery_VccVolts = ((double)Battery_VccRawAnalog / (double)1023) * (double)REF_BATTERY_OUTPUT;
 
   //Percent
   Battery_VbatPerct = Convert_Percent(Battery_VbatVolts, BATTERY_FULL, BATTERY_EMPTY, constrain_percent);
@@ -106,8 +106,8 @@ long VccSum  = 0;
 
 
 // Convert Volts to percentage
-float Cadence_LiPoBattery::Convert_Percent(float inputVolts,float range_max, float range_min, bool clip) {
-float perc;
+double Cadence_LiPoBattery::Convert_Percent(double inputVolts,double range_max, double range_min, bool clip) {
+double perc;
 
   // Convert Volts to percentage
   perc = 100.0 * (inputVolts - range_min) / (range_max - range_min);
@@ -138,43 +138,43 @@ long Cadence_LiPoBattery::Get_Vcc_AnalogLvl(void) {
 
 
 // Returns the current level of Battery_VbatVolts
-float Cadence_LiPoBattery::Get_VbatVoltage(void) {
+double Cadence_LiPoBattery::Get_VbatVoltage(void) {
   return Battery_VbatVolts;
 }
 
 
 // Returns the current level of Battery_VccVolts
-float Cadence_LiPoBattery::Get_VccVoltage(void) {
+double Cadence_LiPoBattery::Get_VccVoltage(void) {
   return Battery_VccVolts;
 }
 
 
 // Returns the current level of Battery_VbatPerct
-float Cadence_LiPoBattery::Get_VbatPercent(void) {
+double Cadence_LiPoBattery::Get_VbatPercent(void) {
   return Battery_VbatPerct;
 }
 
 
 // Returns the current level of Battery_VccPerct
-float Cadence_LiPoBattery::Get_VccPercent(void) {
+double Cadence_LiPoBattery::Get_VccPercent(void) {
   return Battery_VccPerct;
 }
 
 
 // Returns the PARAMETER level of REF_BATTERY_OUTPUT
-float Cadence_LiPoBattery::Get_REF_BATTERY_OUTPUT(void) {
+double Cadence_LiPoBattery::Get_REF_BATTERY_OUTPUT(void) {
   return REF_BATTERY_OUTPUT;
 }
 
 
 // Returns the PARAMETER level of REF_BATTERY_FULL
-float Cadence_LiPoBattery::Get_BATTERY_FULL(void) {
+double Cadence_LiPoBattery::Get_BATTERY_FULL(void) {
   return BATTERY_FULL;
 }
 
 
 // Returns the PARAMETER level of REF_BATTERY_EMPTY
-float Cadence_LiPoBattery::Get_BATTERY_EMPTY(void) {
+double Cadence_LiPoBattery::Get_BATTERY_EMPTY(void) {
   return BATTERY_EMPTY;
 }
 

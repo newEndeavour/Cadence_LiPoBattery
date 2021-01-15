@@ -44,10 +44,10 @@
 // DEFINES /////////////////////////////////////////////////////////////
 //Main Battery = Battery 1
 const uint8_t ANALOG_READ_SAMPLES         	= 10;
-const float  REF_BATTERY_OUTPUT		= 5.20;  // Reference Battery Output
-const float  BATTERY_FULL        		= 4.18;  // Known Battery Voltage measured with multimeter
-const float  BATTERY_EMPTY       		= 3.20;
-const float  BATTERY_LOW_WARNING         	= 20;    // Percentage Warning to trigger message
+const double  REF_BATTERY_OUTPUT		= 5.20;  // Reference Battery Output
+const double  BATTERY_FULL        		= 4.18;  // Known Battery Voltage measured with multimeter
+const double  BATTERY_EMPTY       		= 3.20;
+const double  BATTERY_LOW_WARNING         	= 20;    // Percentage Warning to trigger message
 
 
 
@@ -67,15 +67,15 @@ public:
   long Get_Vbat_AnalogLvl(void);
   long Get_Vcc_AnalogLvl(void);
 
-  float Get_VbatVoltage(void);
-  float Get_VccVoltage(void);
+  double Get_VbatVoltage(void);
+  double Get_VccVoltage(void);
 
-  float Get_VbatPercent(void);
-  float Get_VccPercent(void);
+  double Get_VbatPercent(void);
+  double Get_VccPercent(void);
 
-  float Get_REF_BATTERY_OUTPUT(void);
-  float Get_BATTERY_FULL(void);
-  float Get_BATTERY_EMPTY(void);
+  double Get_REF_BATTERY_OUTPUT(void);
+  double Get_BATTERY_FULL(void);
+  double Get_BATTERY_EMPTY(void);
 
 
 private:
@@ -83,18 +83,18 @@ private:
   uint8_t	analog_Vbat_pin;			// Vbat Pin
   uint8_t	analog_Vcc_pin;			// Vcc Pin
 
-  float 		Convert_Percent(float ,float, float, bool);
+  double 		Convert_Percent(double ,double, double, bool);
   
   int		number_readings;
   
   long 		Battery_VbatRawAnalog;
   long 		Battery_VccRawAnalog;
 
-  float 		Battery_VbatVolts;
-  float 		Battery_VccVolts;
+  double 		Battery_VbatVolts;
+  double 		Battery_VccVolts;
   
-  float 		Battery_VbatPerct;
-  float 		Battery_VccPerct;
+  double 		Battery_VbatPerct;
+  double 		Battery_VccPerct;
 
 };
 
